@@ -1,40 +1,63 @@
-# Iterating Over Hashes
+# Iterating Over Hashes With `#each`
 
 ## Objectives
 
-1. Use lower level iterators like `.each` on a hash.
+1. Understand how to iterate over a hash and how iterating over a hash differs from iterating over an aray.
+1. Use `#each` to iterate over a hash.
 
 ## Iterating Over Hashes
 
-Previously, we've compared hashes to dictionaries or storage containers. Just like with these storage methods in real life, not only do we need to access our stored information, but then to utilize it in some way.
+Previously, we've compared hashes to dictionaries or storage containers. Just like with these storage methods in real life, not only do we need to access our stored information, but we need to utilize it in some way. This is where iteration comes in. 
 
-The `.each` and `.collect` iterators that we encountered in previous units can also be used to iterate over hashes. However, when we iterate over arrays, we iterate over one element at a time: each index in an array contains just one object. In a hash, data is stored in key/value pairs, so we will be iterating over those *pairs*. Let's take a look: 
+Without iteration, we would have to jump through some serious hoops in order to access every key/value pair of our hash. We would have to know the key of each pair and write something along the following lines:
+
+```ruby
+my_hash = {key1: value1, key2: value2, key3: value3}
+
+my_hash[:key1]
+my_hash[:key2]
+my_hash[:key3]
+```
+
+This is painful, tedious and impractical. What happens when we add more keys to our hash? What happens, as will certainly be the case in some of the programs you will learn to build, when a hash contains hundreds, even thousands of key/value pairs?
+
+Instead, we will learn to use iteration to access and operate on all of the key/value paris contained in a hash, programatically. 
+
+## The `#each` Method and Hashes
+
+The `#each` iterator that we encountered in previous units can also be used to iterate over hashes. However, when we iterate over arrays, we iterate over one element at a time––each index in an array contains just one object. In a hash, data is stored in key/value pairs, so we will be iterating over those *pairs*. Let's take a look: 
 
 ```ruby
 hash = {key1: "value1", key2: "value2"}
 
 hash.each do |key, value|
-  puts "#{key}, #{value}"
+  puts "#{key}: #{value}"
 end
 ```
 
-When we iterate over a hash, the `.each` method yields the key/value pair *together* into the block. Inside that block, you have access to the key *and* the value and can manipulate either one or both. 
+When we iterate over a hash, the `#each` method (as well as any other iteration method you use) yields the key/value pair *together* into the block. Inside that block, you have access to the key *and* the value and can manipulate either one or both. 
 
 Drop into IRB and enter in the above code. You should see this output: 
 
 ```ruby
-key1, value1
-key2, value2
+key1: value1
+key2: value2
  => {:key1=>"value1", :key2=>"value2"} 
 ```
 
-Inside the iteration, we have access to and can `puts` out the key and value of a single pair. Then, the return value is the original hash. **Remember that `.each` returns the original collection on which you are calling the method.**
+Inside the iteration, we have access to and can `puts` out the key and value of a single pair. Then, the return value is the original hash. **Remember that `#each` returns the original collection on which you are calling the method.**
 
-Let's take a look at one more example of iteration and manipulation before you try it on your own:
+Let's try it out together:
 
-## Example: Cruise Ship 
+## Code Along I: Cruise Ship 
 
-The good news is you're on a cruise ship! The bad news is that you're *not* on vacation. You are a cruise ship director and you're selecting the day's lucky winner of free tickets to the 8:00pm magic show in the super swanky *Blue Room*. The criteria for picking the winner is that this person must be staying in Suite A and their name must start with the letter "A". We have a hash of passengers that looks like this: 
+**Open up this repo in your text editor to get started. Follow along with the instructions below to get your tests passing**. 
+
+The good news is you're on a cruise ship! The bad news is that you're *not* on vacation. You are a cruise ship director and you're selecting the day's lucky winner of free tickets to the 8:00pm magic show in the super swanky *Blue Room*. The criteria for picking the winner is that this person must be staying in Suite A and their name must start with the letter "A". 
+
+### Our Hash
+
+We'll be operating on a hash of passengers that looks like this:
 
 ```ruby
 passengers = {
@@ -46,7 +69,13 @@ suite_e: "Crumpet the Elf"
 }
 ```
 
-We need to iterate over that hash and collect the name of the passenger who is staying in Suite A *and* whose name begins with the letter "A". Let's give it a shot: 
+Open up `cruise_ship.rb` and you'll see the `passengers` hash, commented out. It's just there to remind you what the hash we are using looks like. We have a method `#select_winner` that will take in the passengers hash as an argument. Our job is to code the content of that method such that it returns the lucky winner. 
+
+### Our Method
+
+We need to iterate over the passengers and collect the name of the passenger who is staying in Suite A *and* whose name begins with the letter "A". Let's give it a shot: 
+
+Place the following snippet of code inside the `#select_winner` method:
 
 ```ruby
 winner = ""
@@ -58,11 +87,54 @@ end
 
 winner  
 ```
+
+If you run your tests now, you should be passing. 
+
+### A Closer Look
+
 Let's break this down: 
 
-* We iterate through the hash using `.each`. We chose `.each` instead of collect because we don't want to collect the key/value pair that contains the winner, just the *name* of the winner. With `.each`, we have the control we need to simply grab the winner's name and set it equal to a variable that we can return later on. 
+* We iterate through the hash using `#each`. We chose `#each` instead of collect because we don't want to collect the key/value pair that contains the winner, just the *name* of the winner. With `#each`, we have the control we need to simply grab the winner's name and set it equal to a variable that we can return later on. 
 * Inside our iteration, we use an `if` statement combined with the `&&` ("and") boolean operator to check if we have the right suite and if the person in that suite has a name that begins with the letter "A". 
 * If that condition returns true, we've found our winner! We set their name equal to the `winner` variable and end our iteration. 
 * Then, we call on our `winner` variable to return the name of the lucky winner. 
 
-This is just one example of how iterating over hashes allows us to access and manipulate the values that they contain. Now, you can try it out by completing the lab in the next lesson. 
+## Code Along II: Happy Birthday
+
+In this example, we are the managers at Chucky Cheese. Chucky Cheese is a great place to have a birthday party, and there are several birthdays going on here today. Our job is to write a method that operates on a hash of birthday kids and wishes them a happy birthday. 
+
+### Our Hash
+
+We will be operating on the following hash that tracks birthday kids and their associated ages:
+
+```ruby
+birthday_kids = {
+	"Timmy" => 9, 
+	"Sarah" => 6, 
+	"Amanda" => 27
+}
+```
+
+### Our Method
+
+The `#happy_birthday` method is set up to take in the `birthday_kids` hash as an argument. We need to code the method such that it `puts` out to the terminal the following message for each kid:
+
+```ruby
+"Happy Birthday #{kids_name}! You are now #{age} years old!"
+```
+
+Let's give it a shot:
+
+```ruby
+def happy_birthday(birthday_kids)
+  birthday_kids.each do |kids_name, age|
+    puts "Happy Birthday #{kids_name}! You are now #{age} years old!"
+  end
+end
+```
+
+Here we are using `#each` to iterate over each pair of kids name/age. We are yielding the key/value pair to the block of code between the `do`/`end` keywords by assigning the variables `kids_name` and `age` in between the pipes, `| |`, to be the placeholders for each key/value pair. 
+
+Then, we can use those variable names in our string interpolation to `puts` out the actual values they point to at each step of the iteration. 
+
+Running the test suite with the above code should show all tests passing. You're ready to move on!
