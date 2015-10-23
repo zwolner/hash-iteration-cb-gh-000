@@ -138,3 +138,7 @@ Here we are using `#each` to iterate over each pair of kids name/age. We are yie
 Then, we can use those variable names in our string interpolation to `puts` out the actual values they point to at each step of the iteration. 
 
 Running the test suite with the above code should show all tests passing. You're ready to move on!
+
+### Bonus
+
+For an extra challenge, try writing a method, `#age_appropriate_birthday` that takes in the `birthday_kids` hash as an argument and only `puts` out the birthday greeting if the birthday kid is actually a kid, i.e. younger than 12 years old. Otherwise, the method should `puts` out `"You are too old for this."`
