@@ -2,7 +2,7 @@ tags:
   - hash
   - iteration
   - readme
-language:
+languages:
   - ruby
 resources: 
   - 0
