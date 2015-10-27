@@ -1,8 +1,11 @@
 # Iterating Over Hashes With `#each`
+## Overview
+
+We'll use iteration to access and manipulate data from hashes.
 
 ## Objectives
 
-1. Understand how to iterate over a hash and how iterating over a hash differs from iterating over an aray.
+1. Distinguish iterating over arrays from iterating over hashes.
 1. Use `#each` to iterate over a hash.
 
 ## Iterating Over Hashes
@@ -19,13 +22,13 @@ my_hash[:key2]
 my_hash[:key3]
 ```
 
-This is painful, tedious and impractical. What happens when we add more keys to our hash? What happens, as will certainly be the case in some of the programs you will learn to build, when a hash contains hundreds, even thousands of key/value pairs?
+This is painful, tedious, and impractical. What happens when we add more keys to our hash? What happens, as will certainly be the case in some of the programs you will build, when a hash contains hundreds or even thousands of key/value pairs?
 
-Instead, we will learn to use iteration to access and operate on all of the key/value paris contained in a hash, programatically. 
+Instead, we will use iteration to programatically access and operate on all of the key/value pairss contained in a hash.
 
 ## The `#each` Method and Hashes
 
-The `#each` iterator that we encountered in previous units can also be used to iterate over hashes. However, when we iterate over arrays, we iterate over one element at a time––each index in an array contains just one object. In a hash, data is stored in key/value pairs, so we will be iterating over those *pairs*. Let's take a look: 
+The `#each` iterator that we encountered in previous units can also be used to iterate over hashes. When we iterate over arrays, we iterate over one element at a time––each index in an array contains just one object. In a hash however, data is stored in key/value pairs so we will be iterating over those *pairs*. Let's take a look: 
 
 ```ruby
 hash = {key1: "value1", key2: "value2"}
@@ -35,7 +38,7 @@ hash.each do |key, value|
 end
 ```
 
-When we iterate over a hash, the `#each` method (as well as any other iteration method you use) yields the key/value pair *together* into the block. Inside that block, you have access to the key *and* the value and can manipulate either one or both. 
+When we iterate over a hash, the `#each` method (as well as any other iteration method you use) yields the key/value pair *together* into the block. Inside that block, you have access to the key *and* the value, and can manipulate either one or both. 
 
 Drop into IRB and enter in the above code. You should see this output: 
 
@@ -45,7 +48,7 @@ key2: value2
  => {:key1=>"value1", :key2=>"value2"} 
 ```
 
-Inside the iteration, we have access to and can `puts` out the key and value of a single pair. Then, the return value is the original hash. **Remember that `#each` returns the original collection on which you are calling the method.**
+Inside the iteration we have access to and can `puts` out the key and value of a single pair. The return value, however, is always the original hash. **Remember that `#each` returns the original collection on which you are calling the method.**
 
 Let's try it out together:
 
@@ -53,7 +56,7 @@ Let's try it out together:
 
 **Open up this repo in your text editor to get started. Follow along with the instructions below to get your tests passing**. 
 
-The good news is you're on a cruise ship! The bad news is that you're *not* on vacation. You are a cruise ship director and you're selecting the day's lucky winner of free tickets to the 8:00pm magic show in the super swanky *Blue Room*. The criteria for picking the winner is that this person must be staying in Suite A and their name must start with the letter "A". 
+The good news is you're on a cruise ship! The bad news is that you're *not* on vacation. You are a cruise ship director and you're selecting the day's lucky ticket winner to the 8:00pm magic show in the super swanky *Blue Room*. The criteria for picking the winner is that this person must be staying in Suite A and their name must start with the letter "A". 
 
 ### Our Hash
 
@@ -69,7 +72,7 @@ suite_e: "Crumpet the Elf"
 }
 ```
 
-Open up `cruise_ship.rb` and you'll see the `passengers` hash, commented out. It's just there to remind you what the hash we are using looks like. We have a method `#select_winner` that will take in the passengers hash as an argument. Our job is to code the content of that method such that it returns the lucky winner. 
+Open up `cruise_ship.rb` and you'll see the `passengers` hash, commented out. (It's just there to remind you what the hash we are using looks like.) We have a method `#select_winner` that will take in the passengers hash as an argument. Our job is to code the content of that method such that it returns the lucky winner. 
 
 ### Our Method
 
