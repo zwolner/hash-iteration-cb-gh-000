@@ -24,7 +24,7 @@ my_hash[:key3]
 
 This is painful, tedious, and impractical. What happens when we add more keys to our hash? What happens, as will certainly be the case in some of the programs you will build, when a hash contains hundreds or even thousands of key/value pairs?
 
-Instead, we will use iteration to programatically access and operate on all of the key/value pairss contained in a hash.
+Instead, we will use iteration to programatically access and operate on all of the key/value pairs contained in a hash.
 
 ## The `#each` Method and Hashes
 
