@@ -141,3 +141,5 @@ Here we are using `#each` to iterate over each pair of kids name/age. We are yie
 Then, we can use those variable names in our string interpolation to `puts` out the actual values they point to at each step of the iteration. 
 
 Running the test suite with the above code should show all tests passing. You're ready to move on!
+
+<a href='https://learn.co/lessons/hash-iteration' data-visibility='hidden'>View this lesson on Learn.co</a>
