@@ -48,7 +48,7 @@ key2: value2
  => {:key1=>"value1", :key2=>"value2"} 
 ```
 
-Inside the iteration we have access to and can `puts` out the key and value of a single pair. The return value, however, is always the original hash. **Remember that `#each` returns the original collection on which you are calling the method.**
+Inside the iteration we have access to, we can `puts` out the key and value of a single pair. The return value, however, is always the original hash. **Remember that `#each` returns the original collection on which you are calling the method.**
 
 Let's try it out together:
 
