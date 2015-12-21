@@ -48,7 +48,7 @@ key2: value2
  => {:key1=>"value1", :key2=>"value2"} 
 ```
 
-Inside the iteration we have access to and can `puts` out the key and value of a single pair. The return value, however, is always the original hash. **Remember that `#each` returns the original collection on which you are calling the method.**
+Inside the iteration we have access to, we can `puts` out the key and value of a single pair. The return value, however, is always the original hash. **Remember that `#each` returns the original collection on which you are calling the method.**
 
 Let's try it out together:
 
@@ -141,3 +141,6 @@ Here we are using `#each` to iterate over each pair of kids name/age. We are yie
 Then, we can use those variable names in our string interpolation to `puts` out the actual values they point to at each step of the iteration. 
 
 Running the test suite with the above code should show all tests passing. You're ready to move on!
+
+<a href='https://learn.co/lessons/hash-iteration' data-visibility='hidden'>View this lesson on Learn.co</a>
+
