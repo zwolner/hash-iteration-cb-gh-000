@@ -142,4 +142,4 @@ Then, we can use those variable names in our string interpolation to `puts` out 
 
 Running the test suite with the above code should show all tests passing. You're ready to move on!
 
-<a href='https://learn.co/lessons/hash-iteration' data-visibility='hidden'>View this lesson on Learn.co</a>
+<p data-visibility='hidden'>View <a href='https://learn.co/lessons/hash-iteration' title='Iterating Over Hashes With #each'>Iterating Over Hashes With #each</a> on Learn.co and start learning to code for free.</p>
