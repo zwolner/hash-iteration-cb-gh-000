@@ -104,7 +104,7 @@ Let's break this down:
 
 ## Code Along II: Happy Birthday
 
-In this example, we are the managers at Chucky Cheese. Chucky Cheese is a great place to have a birthday party, and there are several birthdays going on here today. Our job is to write a method that operates on a hash of birthday kids and wishes them a happy birthday.
+In this example, we are the managers at Chuck E. Cheese's. Chuck E. Cheese's is a great place to have a birthday party, and there are several birthdays going on here today. Our job is to write a method that operates on a hash of birthday kids and wishes them a happy birthday.
 
 ### Our Hash
 
